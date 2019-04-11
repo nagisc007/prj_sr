@@ -1,0 +1,3 @@
+[submodule "storybuilder"]
+	path = storybuilder
+	url = git@github.com:nagisc007/storybuilder.git
