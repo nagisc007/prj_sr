@@ -2,7 +2,7 @@
 """Test suite for all tests.
 """
 import unittest
-
+import test_main
 
 
 def suite():
@@ -13,4 +13,6 @@ def suite():
     '''
     suite = unittest.TestSuite()
 
+    suite.addTest(unittest.makeSuite(test_main.StoryTest))
+    
     return suite

@@ -40,6 +40,9 @@ def master():
 
 def story(ma: Master):
     return ma.story("SR",
+            ma.anri.be(ma.factory, ma.day1),
+            ma.anri.go(ma.sr),
+            ma.anri.look(ma.dad),
             )
 
 def main(): # pragma: no cover
