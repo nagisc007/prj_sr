@@ -36,10 +36,14 @@ class StoryTest(unittest.TestCase):
             with self.subTest(title=title, story=story, hero=hero, rival=rival):
                 self.assertTrue(testtools.has_basic_infos(self, story, hero, rival))
 
-    @unittest.skip('in preparation')
     def test_has_outline_infos(self):
+        m = self.ma
         data = [
-                ("story", self.story, "what", "why", "how", "result"),
+                ("story", self.story,
+                    m.anri.look("会う", m.dad).want(),
+                    m.anri.talk(m.dad, m.mam, "殺した"),
+                    m.anri.talk(m.sr, "優勝すれば会える"),
+                    m.anri.do("敗北")),
                 ]
 
         for title, story, what, why, how, result in data[0:1]:

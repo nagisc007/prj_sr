@@ -14,6 +14,7 @@ from storybuilder.builder.tools import build_to_story
 CHARAS = (
         ("anri", "風霧アンリ", 18, "female", "レーサー", "me:私"),
         ("dad", "光峰祐一郎", 38, "male", "光舞グループ社長", "me:私"),
+        ("mam", "風霧ユリ", 28, "female", "母親", "me:わたし", "亡くなっている"),
         )
 STAGES = (
         ("factory", "工場", "アンリが働くネジ工場"),
@@ -41,8 +42,12 @@ def master():
 def story(ma: Master):
     return ma.story("SR",
             ma.anri.be(ma.factory, ma.day1),
-            ma.anri.go(ma.sr),
-            ma.anri.look(ma.dad),
+            ma.anri.look(ma.dad, "会う").want(),
+            ma.anri.talk(ma.dad, ma.mam, "殺した"),
+            ma.anri.talk(ma.sr, "優勝すれば会える"),
+            ma.anri.do(ma.sr, "参加"),
+            ma.anri.do("敗北"),
+            ma.anri.look("会う", ma.dad),
             )
 
 def main(): # pragma: no cover
