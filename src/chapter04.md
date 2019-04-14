@@ -2,11 +2,11 @@
 
 | version | status | released | modified | size | site |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| v0.1.0 | Develop | 2019.- | 2019.- | 8K | [カクヨム](https://kakuyomu.jp/) |
+| v0.1.0 | Develop | 2019.- | 2019.- | 12K | [カクヨム](https://kakuyomu.jp/) |
 
-**「copy」**
+**「負けた。でもまだ動けるなら、勝つために藻掻くんだ」**
 
-overview
+レースに負けて全てを失ったアンリ。けれどまだ次のチャンスが彼女の元に転がっていた。
 
 ## Description
 

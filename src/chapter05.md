@@ -2,11 +2,11 @@
 
 | version | status | released | modified | size | site |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| v0.1.0 | Develop | 2019.- | 2019.- | 8K | [カクヨム](https://kakuyomu.jp/) |
+| v0.1.0 | Develop | 2019.- | 2019.- | 12K | [カクヨム](https://kakuyomu.jp/) |
 
-**「copy」**
+**「あんたのことを信用する訳じゃない。ただ裏切らない確信があるだけよ」**
 
-overview
+グランプリへの出場権を賭けた選考レース。そこでアンリは自分と同じ女性レーサーとコンビを組むことになる。
 
 ## Description
 

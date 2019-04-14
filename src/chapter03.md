@@ -2,11 +2,11 @@
 
 | version | status | released | modified | size | site |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| v0.1.0 | Develop | 2019.- | 2019.- | 8K | [カクヨム](https://kakuyomu.jp/) |
+| v0.1.0 | Develop | 2019.- | 2019.- | 12K | [カクヨム](https://kakuyomu.jp/) |
 
-**「copy」**
+**「奪うだけがレースじゃない。手を取り合うことだってあるんだぜ」**
 
-overview
+何とか先頭まで追いついてきたアンリ。彼女に共闘しようと申し出る男がいて。
 
 ## Description
 

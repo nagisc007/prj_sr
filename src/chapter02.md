@@ -2,11 +2,11 @@
 
 | version | status | released | modified | size | site |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| v0.1.0 | Develop | 2019.- | 2019.- | 8K | [カクヨム](https://kakuyomu.jp/) |
+| v0.1.0 | Develop | 2019.- | 2019.- | 12K | [カクヨム](https://kakuyomu.jp/) |
 
-**「copy」**
+**「誰もがその瞬間に希望と絶望を見るんだ」**
 
-overview
+最初のレースに挑むアンリ。けれどいきなり過酷な洗礼を浴びせられてしまう。
 
 ## Description
 

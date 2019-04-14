@@ -2,11 +2,11 @@
 
 | version | status | released | modified | size | site |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| v0.1.0 | Develop | 2019.- | 2019.- | 8K | [カクヨム](https://kakuyomu.jp/) |
+| v0.1.0 | Develop | 2019.- | 2019.- | 12K | [カクヨム](https://kakuyomu.jp/) |
 
-**「copy」**
+**「のし上がるんだよ。相手の希望を奪ってでも」**
 
-overview
+作業ロボットのドロイドが人間から使い捨てられている世界。そこでドロイドたち唯一の希望がレースだった。
 
 ## Description
 
