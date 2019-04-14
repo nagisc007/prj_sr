@@ -12,8 +12,8 @@ from storybuilder.builder.tools import build_to_story
 # episodes
 
 # main
-def story01(ma: Master):
-    return ma.story("title",
+def story07(ma: Master):
+    return ma.story("Race 7",
             )
 
 def main(): # pragma: no cover

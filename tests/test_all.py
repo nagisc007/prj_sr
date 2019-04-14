@@ -3,6 +3,7 @@
 """
 import unittest
 import test_main
+import test_chap01
 
 
 def suite():
@@ -14,5 +15,7 @@ def suite():
     suite = unittest.TestSuite()
 
     suite.addTest(unittest.makeSuite(test_main.StoryTest))
+
+    suite.addTest(unittest.makeSuite(test_chap01.StoryTest))
     
     return suite

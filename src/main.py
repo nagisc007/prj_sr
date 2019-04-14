@@ -9,6 +9,15 @@ sys.path.append('storybuilder')
 from storybuilder.builder.master import Master
 from storybuilder.builder.tools import build_to_story
 from chapter01 import story01
+from chapter02 import story02
+from chapter03 import story03
+from chapter04 import story04
+from chapter05 import story05
+from chapter06 import story06
+from chapter07 import story07
+from chapter08 import story08
+from chapter09 import story09
+from chapter10 import story10
 
 
 # configs
@@ -50,6 +59,15 @@ def story(ma: Master):
             ma.anri.do("敗北"),
             ma.anri.look("会う", ma.dad),
             story01(ma),
+            story02(ma),
+            story03(ma),
+            story04(ma),
+            story05(ma),
+            story06(ma),
+            story07(ma),
+            story08(ma),
+            story09(ma),
+            story10(ma),
             )
 
 def main(): # pragma: no cover
