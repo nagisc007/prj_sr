@@ -8,6 +8,7 @@ sys.path.append('storybuilder')
 
 from storybuilder.builder.master import Master
 from storybuilder.builder.tools import build_to_story
+from chapter01 import story01
 
 
 # configs
@@ -48,10 +49,12 @@ def story(ma: Master):
             ma.anri.do(ma.sr, "参加"),
             ma.anri.do("敗北"),
             ma.anri.look("会う", ma.dad),
+            story01(ma),
             )
 
 def main(): # pragma: no cover
-    return build_to_story(story())
+    ma = master()
+    return build_to_story(story(ma))
 
 
 if __name__ == '__main__':
