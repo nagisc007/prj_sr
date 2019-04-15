@@ -14,10 +14,17 @@ from storybuilder.builder.tools import build_to_story
 # main
 def story01(ma: Master):
     return ma.story("title",
-            ma.anri.be(),
-            ma.dad.be(),
-            ma.day1.explain(),
-            ma.factory.explain(),
+            ma.anri.do(ma.sr, "参加").want(),
+            ma.anri.look(ma.dad, ma.sr, "参加すると").can(),
+            ma.anri.do("働く", ma.factory, ma.day1),
+            ma.anri.know(ma.ticket, "当選通知"),
+            ma.anri.go(ma.ticketcenter),
+            ma.anri.have(ma.ticket),
+            ma.anri.go(ma.factory),
+            ma.anri.do("襲う").ps(),
+            ma.anri.do("奪う").ps(),
+            ma.anri.go("取り返す", ma.ticket),
+            ma.anri.go(ma.race, "参加", ma.ticket),
             )
 
 def main(): # pragma: no cover
