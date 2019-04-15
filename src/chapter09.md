@@ -2,7 +2,7 @@
 
 | version | status | released | modified | size | site |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| v0.1.0 | Develop | 2019.- | 2019.- | 8K | [カクヨム](https://kakuyomu.jp/) |
+| v0.1.0 | Develop | 2019.- | 2019.- | 12K | [カクヨム](https://kakuyomu.jp/) |
 
 **「この影を追い抜いた先に、実物がいるんだ！」**
 
@@ -10,15 +10,19 @@
 
 ## Description
 
-in preparation
+グランプリ後半戦に入り、光舞レンとの対決になるアンリ。  
+しかしレンは強く、今までの強豪とは比べ物にならないくらいに歯が立たない。  
+そしてアンリはレンが祐一郎の遺伝子情報をベースに作られたレースドロイドだと知るのだった。
 
 ## Characters
 
-in preparation
+- 風霧アンリ……主人公のレーサー
+- 光舞祐一郎……光舞グループ総帥
+- 光舞レン……光舞グループが送り出した優勝候補
 
 ## Stages
 
-in preparation
+- レース会場
 
 ## License
 
