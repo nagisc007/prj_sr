@@ -6,7 +6,16 @@ overview
 
 | Number | Title | Site |
 | --- | --- | --- |
-| [#1](chapter01/README) | Race 1 | _in preparation_ |
+| [#1](chapter01.md) | Race 1 | _in preparation_ |
+| [#2](chapter02.md) | Race 2 | _in preparation_ |
+| [#3](chapter03.md) | Race 3 | _in preparation_ |
+| [#4](chapter04.md) | Race 4 | _in preparation_ |
+| [#5](chapter05.md) | Race 5 | _in preparation_ |
+| [#6](chapter06.md) | Race 6 | _in preparation_ |
+| [#8](chapter07.md) | Race 7 | _in preparation_ |
+| [#8](chapter08.md) | Race 8 | _in preparation_ |
+| [#9](chapter09.md) | Race 9 | _in preparation_ |
+| [#10](chapter10.md) | Race 10 | _in preparation_ |
 
 ## Description
 

@@ -6,37 +6,29 @@ import storybuilder.builder.testtools as testtools
 from storybuilder.builder.sbutils import print_test_title
 from src.main import master, story
 from src.main import CHARAS, STAGES
+from src.chapter01 import story01
 
 
-_FILENAME = 'main.py'
+_FILENAME = 'chapter01.py'
 
 
 class StoryTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print_test_title(_FILENAME, "main story")
+        print_test_title(_FILENAME, "chapter 01")
 
     def setUp(self):
         self.ma = master()
-        self.story = story(self.ma)
+        self.story = story01(self.ma)
 
-    def test_is_all_actions(self):
-        self.assertTrue(testtools.is_all_actions(self.story))
-
-    @unittest.skip('in preparation')
     def test_exists_looking(self):
-        for k in [v[0] for v in CHARAS] + [v[0] for v in STAGES]:
-            with self.subTest(k=k):
-                self.assertTrue(testtools.exists_looking_of_the_subject(self.story, self.ma[k]))
-
-    def test_followed_flags(self):
-        self.assertTrue(testtools.followed_all_flags(self, self.story))
+        pass
 
     def test_has_basic_infos(self):
         m = self.ma
         data = [
-                ("story", self.story, m.anri, m.dad),
+                ("chapter01", self.story, m.anri, m.dad),
                 ]
 
         for title, story, hero, rival in data[0:1]:
@@ -46,11 +38,11 @@ class StoryTest(unittest.TestCase):
     def test_has_outline_infos(self):
         m = self.ma
         data = [
-                ("story", self.story,
-                    m.anri.look("会う", m.dad).want(),
-                    m.anri.talk(m.dad, m.mam, "殺した"),
-                    m.anri.talk(m.sr, "優勝すれば会える"),
-                    m.anri.do("敗北")),
+                ("chapter01", self.story,
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be()),
                 ]
 
         for title, story, what, why, how, result in data[0:1]:
