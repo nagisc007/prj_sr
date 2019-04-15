@@ -17,14 +17,14 @@ def story01(ma: Master):
             ma.anri.do(ma.sr, "参加").want(),
             ma.anri.look(ma.dad, ma.sr, "参加すると").can(),
             ma.anri.do("働く", ma.factory, ma.day1),
-            ma.anri.know(ma.ticket, "当選通知"),
+            ma.anri.know(ma.ticket1, "当選通知"),
             ma.anri.go(ma.ticketcenter),
-            ma.anri.have(ma.ticket),
+            ma.anri.have(ma.ticket1),
             ma.anri.go(ma.factory),
             ma.anri.do("襲う").ps(),
             ma.anri.do("奪う").ps(),
-            ma.anri.go("取り返す", ma.ticket),
-            ma.anri.go(ma.race, "参加", ma.ticket),
+            ma.anri.go("取り返す", ma.ticket1),
+            ma.anri.go(ma.race1, "参加", ma.ticket1),
             )
 
 def main(): # pragma: no cover
