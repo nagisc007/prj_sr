@@ -6,21 +6,21 @@ import storybuilder.builder.testtools as testtools
 from storybuilder.builder.sbutils import print_test_title
 from src.main import master, story
 from src.main import CHARAS, STAGES
-from src.chapter01 import story01
+from src.chapter02 import story02
 
 
-_FILENAME = 'chapter01.py'
+_FILENAME = 'chapter02.py'
 
 
 class StoryTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print_test_title(_FILENAME, "chapter 01")
+        print_test_title(_FILENAME, "chapter 02")
 
     def setUp(self):
         self.ma = master()
-        self.story = story01(self.ma)
+        self.story = story02(self.ma)
 
     def test_exists_looking(self):
         pass
@@ -28,7 +28,7 @@ class StoryTest(unittest.TestCase):
     def test_has_basic_infos(self):
         m = self.ma
         data = [
-                ("chapter01", self.story, m.anri, m.dad),
+                ("chapter02", self.story, m.anri, m.yabu),
                 ]
 
         for title, story, hero, rival in data[0:1]:
@@ -38,11 +38,11 @@ class StoryTest(unittest.TestCase):
     def test_has_outline_infos(self):
         m = self.ma
         data = [
-                ("chapter01", self.story,
-                    m.anri.do(m.sr, "参加").want(),
-                    m.anri.look(m.dad, m.sr, "参加すると").can(),
-                    m.anri.have(m.ticket1),
-                    m.anri.go("参加", m.ticket1)),
+                ("chapter02", self.story,
+                    m.anri.have(m.race1, "優勝").want(),
+                    m.anri.have(m.grandticket).can(),
+                    m.anri.have(m.yabu, "協力"),
+                    m.anri.do(m.yabu, "裏切り").ps()),
                 ]
 
         for title, story, what, why, how, result in data[0:1]:
