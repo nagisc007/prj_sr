@@ -39,13 +39,34 @@ class StoryTest(unittest.TestCase):
         m = self.ma
         data = [
                 ("chapter01", self.story,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be()),
+                    m.anri.do(m.sr, "参加").want(),
+                    m.anri.look(m.dad, m.sr, "参加すると").can(),
+                    m.anri.have(m.ticket),
+                    m.anri.go("参加", m.ticket)),
                 ]
 
         for title, story, what, why, how, result in data[0:1]:
             with self.subTest(title=title, story=story, what=what, why=why, how=how, result=result):
-                self.assertTrue(testtools.has_outline_infos(self, story, what, why, how, result))
+                self.assertTrue(testtools.has_outline_infos(self, story, what, why, how, result, True))
 
+    @unittest.skip("in preparation")
+    def test_has_the_action(self):
+        m = self.ma
+        data = [
+                m.droid.explain("作業ドロイド"),
+                ]
+
+        for v in data:
+            with self.subTest(v=v):
+                self.assertTrue(testtools.has_the_action(self.story, v, testtools.MatchLv.NEAR))
+
+    @unittest.skip("in preparation")
+    def test_has_the_keyword(self):
+        m = self.ma
+        data = [
+                "ドロイド",
+                ]
+
+        for v in data:
+            with self.subTest(v=v):
+                self.assertTrue(testtools.has_the_keyword(self.story, v))
