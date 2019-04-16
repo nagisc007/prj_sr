@@ -10,10 +10,8 @@ from storybuilder.builder.tools import build_to_story
 
 
 # episodes
-
-# main
-def story01(ma: Master):
-    return ma.story("title",
+def ep_intro(ma: Master):
+    return ma.story("奪われる世界",
             ma.anri.do(ma.sr, "参加").want(),
             ma.anri.look(ma.dad, ma.sr, "参加すると").can(),
             ma.anri.do("働く", ma.factory, ma.day1),
@@ -23,8 +21,30 @@ def story01(ma: Master):
             ma.anri.go(ma.factory),
             ma.anri.do("襲う").ps(),
             ma.anri.do("奪う").ps(),
+            )
+
+def ep_everyday(ma: Master):
+    return ma.story("アンリの日常",
+            )
+
+def ep_raceticket(ma: Master):
+    return ma.story("レースチケット",
+            )
+
+def ep_firstrace(ma: Master):
+    return ma.story("いざ初レース",
             ma.anri.go("取り返す", ma.ticket1),
             ma.anri.go(ma.race1, "参加", ma.ticket1),
+            )
+
+
+# main
+def story01(ma: Master):
+    return ma.story("title",
+            ep_intro(ma),
+            ep_everyday(ma),
+            ep_raceticket(ma),
+            ep_firstrace(ma),
             )
 
 def main(): # pragma: no cover
