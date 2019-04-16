@@ -14,6 +14,7 @@ import test_chap07
 import test_chap07
 import test_chap08
 import test_chap09
+import test_chap10
 
 
 def suite():
@@ -35,5 +36,6 @@ def suite():
     suite.addTest(unittest.makeSuite(test_chap07.StoryTest))
     suite.addTest(unittest.makeSuite(test_chap08.StoryTest))
     suite.addTest(unittest.makeSuite(test_chap09.StoryTest))
+    suite.addTest(unittest.makeSuite(test_chap10.StoryTest))
     
     return suite
