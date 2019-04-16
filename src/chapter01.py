@@ -28,6 +28,7 @@ def story01(ma: Master):
             )
 
 def main(): # pragma: no cover
+    from main import master
     return build_to_story(story01(master()))
 
 
