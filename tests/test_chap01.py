@@ -33,10 +33,10 @@ class StoryTest(unittest.TestCase):
         m = self.ma
         data = [
                 ("chapter01", self.story, m.anri, m.dad),
-                ("ep1", self.ep1, m.anri, m.dad),
-                ("ep2", self.ep2, m.anri, m.dad),
-                ("ep3", self.ep3, m.anri, m.dad),
-                ("ep4", self.ep4, m.anri, m.dad),
+                ("ep1", self.ep1, m.anri, m.golda),
+                ("ep2", self.ep2, m.anri, m.chief),
+                ("ep3", self.ep3, m.anri, m.golda),
+                ("ep4", self.ep4, m.anri, m.golda),
                 ]
 
         for title, story, hero, rival in data:
@@ -50,31 +50,31 @@ class StoryTest(unittest.TestCase):
                     m.anri.do(m.sr, "参加").want(),
                     m.anri.look(m.dad, m.sr, "参加すると").can(),
                     m.anri.have(m.ticket1),
-                    m.anri.go("参加", m.ticket1),
+                    m.anri.go(m.race1stage),
                     ),
                 ("ep1", self.ep1,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
+                    m.anri.do("逮捕", m.partsrobber),
+                    m.chief.deal("被害", m.partsrobber),
+                    m.anri.look("見張る", m.wreckfactory),
+                    m.anri.do("通報", m.golda, m.partsrobber),
                     ),
                 ("ep2", self.ep2,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
+                    m.anri.do(m.sr, "参加").want(),
+                    m.anri.look(m.dad, m.sr, "参加すると").can(),
+                    m.anri.deal("申し込み", m.ticket1),
+                    m.anri.know("当選", m.ticket1),
                     ),
                 ("ep3", self.ep3,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
+                    m.anri.have(m.ticket1).must(),
+                    m.anri.go(m.race1).want(),
+                    m.anri.go("取りに行く", m.ticketcenter),
+                    m.anri.have("奪う", m.golda).ps(),
                     ),
                 ("ep4", self.ep4,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
+                    m.anri.go(m.race1).must(),
+                    m.anri.ask(m.dad, m.dad_reason).want(),
+                    m.anri.have(m.ticket1),
+                    m.anri.go(m.race1stage),
                     ),
                 ]
 
@@ -98,6 +98,7 @@ class StoryTest(unittest.TestCase):
         m = self.ma
         data = [
                 "ドロイド",
+                m.sr,
                 ]
 
         for v in data:
