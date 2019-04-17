@@ -41,8 +41,33 @@ def ep_intro(m: Master):
             m.sr.explain("ドロイドレース最高峰", "優勝者はドロイドから人間へ"),
             )
 
-def ep_everyday(ma: Master):
-    return ma.story("アンリの日常",
+def ep_everyday(m: Master):
+    day2 = m.day1.elapsed_day(day=3)
+    return m.story("アンリの日常",
+            m.comment("ドロイドの説明を中心に、世界観も説明"),
+            m.anri.deal("ネジ製造", m.factory, day2),
+            m.chief.come(m.factory),
+            m.chief.talk(m.anri, "朝早いね"),
+            m.chief.explain("工場長", "頭が禿げ上がる", "人間"),
+            m.anri.reply("自分たちは作業ドロイドだから疲れない"),
+            m.droid.explain("かつて人間がしていた肉体労働を行うロボット"),
+            m.chief.ask(m.anri, "朝食", "食べる？"),
+            m.anri.reply(m.chief, "食事は必要ない"),
+            m.droid.explain("エネルギィは補給キューブを食べる"),
+            m.chief.ask(m.anri, m.race1),
+            m.combine(
+                m.anri.reply(m.chief),
+                m.anri.deal("申し込み", m.ticket1),
+                ),
+            m.chief.ask(m.anri, m.anri_reason),
+            m.anri.do(m.sr, "参加").want(),
+            m.combine(
+                m.anri.think(),
+                m.anri.look(m.dad, m.sr, "参加すると").can(),
+                ),
+            m.marca.come(m.factory, "配達"),
+            m.anri.have("当選通知", m.ticket1),
+            m.anri.know("当選", m.ticket1),
             )
 
 def ep_raceticket(ma: Master):
@@ -58,10 +83,11 @@ def ep_raceticket(ma: Master):
             ma.anri.do("奪う").ps(),
             )
 
-def ep_firstrace(ma: Master):
-    return ma.story("いざ初レース",
-            ma.anri.go("取り返す", ma.ticket1),
-            ma.anri.go(ma.race1, "参加", ma.ticket1),
+def ep_firstrace(m: Master):
+    return m.story("いざ初レース",
+            m.anri.go("取り返す", m.ticket1),
+            m.anri.go(m.race1, "参加", m.ticket1),
+            m.anri.go(m.race1stage),
             )
 
 
