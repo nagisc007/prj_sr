@@ -73,7 +73,7 @@ class StoryTest(unittest.TestCase):
                 ("ep4", self.ep4,
                     m.anri.go(m.race1).must(),
                     m.anri.ask(m.dad, m.dad_reason).want(),
-                    m.anri.have(m.ticket1),
+                    m.anri.have("取り戻す", m.ticket1),
                     m.anri.go(m.race1stage),
                     ),
                 ]

@@ -87,8 +87,23 @@ def ep_raceticket(m: Master):
             )
 
 def ep_firstrace(m: Master):
+    day3 = m.day1.elapsed_day(day=5)
     return m.story("いざ初レース",
-            m.anri.go("取り返す", m.ticket1),
+            m.anri.go(m.ohtacity, day3),
+            m.anri.go(m.race1).must(),
+            m.anri.ask(m.dad, m.dad_reason).want(),
+            m.dad_reason.explain(m.dad, "自分の母を放置して見殺しにした"),
+            m.anri.go(m.golda, "追いつく", m.angelwing),
+            m.anri.ask(m.golda, m.ticket1, "どうするつもり？"),
+            m.golda.reply(m.anri, "これを使って人間になる"),
+            m.anri.ask(m.golda, "レーサーにはなれない"),
+            m.golda.reply(m.anri, "お前こそレーサーは無理"),
+            m.anri.deal(m.golda, m.streetstage, "野良レース"),
+            m.golda.reply(m.anri, "承諾"),
+            m.anri.go(m.uof_race),
+            m.golda.go(m.uof_race),
+            m.anri.deal(m.golda, "勝利"),
+            m.anri.have("取り戻す", m.ticket1),
             m.anri.go(m.race1, "参加", m.ticket1),
             m.anri.go(m.race1stage),
             )
