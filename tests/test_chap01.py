@@ -56,7 +56,7 @@ class StoryTest(unittest.TestCase):
                     m.anri.do("逮捕", m.partsrobber),
                     m.chief.deal("被害", m.partsrobber),
                     m.anri.look("見張る", m.wreckfactory),
-                    m.anri.do("通報", m.golda, m.partsrobber),
+                    m.anri.deal("通報", m.golda, m.partsrobber),
                     ),
                 ("ep2", self.ep2,
                     m.anri.do(m.sr, "参加").want(),
