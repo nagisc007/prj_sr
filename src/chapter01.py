@@ -70,17 +70,20 @@ def ep_everyday(m: Master):
             m.anri.know("当選", m.ticket1),
             )
 
-def ep_raceticket(ma: Master):
-    return ma.story("レースチケット",
-            ma.anri.do(ma.sr, "参加").want(),
-            ma.anri.look(ma.dad, ma.sr, "参加すると").can(),
-            ma.anri.do("働く", ma.factory, ma.day1),
-            ma.anri.know(ma.ticket1, "当選通知"),
-            ma.anri.go(ma.ticketcenter),
-            ma.anri.have(ma.ticket1),
-            ma.anri.go(ma.factory),
-            ma.anri.do("襲う").ps(),
-            ma.anri.do("奪う").ps(),
+def ep_raceticket(m: Master):
+    day3 = m.day1.elapsed_day(day=5)
+    return m.story("レースチケット",
+            m.anri.go("取りに行く", m.ticketcenter, day3),
+            m.anri.have(m.ticket1).must(),
+            m.anri.go(m.race1).want(),
+            m.ticketcenter.explain("役所の中にある", "専用窓口がある"),
+            m.amano.ask(m.anri, m.ticket1notice),
+            m.anri.look(m.amano, m.ticket1notice),
+            m.anri.have(m.ticket1),
+            m.anri.go(m.factory, "帰る"),
+            m.anri.go(m.ohtacity, "路地"),
+            m.anri.do("襲う", m.golda).ps(),
+            m.anri.have("奪う", m.golda).ps(),
             )
 
 def ep_firstrace(m: Master):
