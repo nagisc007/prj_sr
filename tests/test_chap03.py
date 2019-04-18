@@ -71,9 +71,9 @@ class StoryTest(unittest.TestCase):
                     m.anri.be(m.taiga, "立ち塞がる"),
                     ),
                 ("ep4", self.ep4,
-                    m.anri.have(m.race1, "優勝"),
+                    m.anri.have(m.race1, "優勝").want(),
                     m.anri.have(m.grandticket),
-                    m.anri.have(m.yabu, "協力", m.taiga, "倒す"),
+                    m.anri.do(m.yabu, "協力", m.taiga, "倒す"),
                     m.anri.have(m.race1, "優勝").non(),
                     ),
                 ]

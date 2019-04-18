@@ -95,6 +95,8 @@ WORDS = (
         ("ren_secret", "レンの秘密", "実は父の細胞を使ったクローンである"),
         ("partsrobber", "盗掘屋", "レーサーのパーツを盗んだりして売りさばく盗賊"),
         ("robhunter", "盗掘狩り", "盗掘屋を通報、逮捕する者"),
+        # chapter2
+        ("yabu_reason", "野武の事情"),
         )
 FLAGS = (
         # chapter2
