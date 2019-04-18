@@ -46,6 +46,8 @@ STAGES = (
         ("factory", "　中村ネジ工場", "アンリが働くネジ工場"),
         ("ticketcenter", "チケットセンター"),
         ("race1stage", "最初のレース会場"),
+        ("race1front", "第一レース受付"),
+        ("race1waitroom", "第一レース控室"),
         ("race2stage", "二番目のレース会場"),
         ("race_consstage", "敗者復活戦の会場"),
         ("grandracestage", "グランプリレース会場"),
@@ -53,6 +55,8 @@ STAGES = (
         ("ohtacity", "大田シティ", "旧大田区"),
         ("oldtokyo", "オールドトーキオ", "昔の東京。現在は壊滅しスラム街が広がる"),
         ("streetstage", "路地レース場", "野良レーサーがよく使うスラム街の市街地"),
+        ("race_bus", "バス"),
+        ("buscenter", "バスセンター"),
         )
 DAYS = (
         ("day1", "一日目"),
@@ -71,6 +75,7 @@ ITEMS = (
         ("angelwing", "エンジェルウイング", "アンリの最大の武器にして母の遺品"),
         ("bugparts", "罠パーツ"),
         ("pubcar", "宣伝車"),
+        ("skymonitor", "空中モニタ"),
         )
 WORDS = (
         ("droid", "ドロイド", "人型の作業ロボット"),
@@ -91,7 +96,10 @@ WORDS = (
         ("partsrobber", "盗掘屋", "レーサーのパーツを盗んだりして売りさばく盗賊"),
         ("robhunter", "盗掘狩り", "盗掘屋を通報、逮捕する者"),
         )
-
+FLAGS = (
+        # chapter2
+        ("important_race", "スタートが大事"),
+        )
 
 # chapters
 
@@ -99,6 +107,7 @@ WORDS = (
 def master():
     ma = Master('SR project')
     ma.set_db(CHARAS, STAGES, DAYS, ITEMS, WORDS)
+    ma.set_flags(FLAGS)
     return ma
 
 def story(ma: Master):
