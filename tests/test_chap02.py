@@ -55,7 +55,7 @@ class StoryTest(unittest.TestCase):
                     m.anri.be(),
                     m.anri.be(),
                     m.anri.be(),
-                    m.anri.be(),
+                    m.anri.look(m.yabu),
                     ),
                 ("ep2", self.ep2,
                     m.anri.be(),
