@@ -39,7 +39,7 @@ class StoryTest(unittest.TestCase):
                 ("ep4", self.ep4, m.anri, m.yabu),
                 ]
 
-        for title, story, hero, rival in data[0:1]:
+        for title, story, hero, rival in data:
             with self.subTest(title=title, story=story, hero=hero, rival=rival):
                 self.assertTrue(testtools.has_basic_infos(self, story, hero, rival))
 
@@ -52,32 +52,32 @@ class StoryTest(unittest.TestCase):
                     m.anri.have(m.yabu, "協力"),
                     m.anri.do(m.yabu, "裏切り").ps()),
                 ("ep1", self.ep1,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.look(m.yabu),
+                    m.anri.go(m.race1stage, "迷わずに").must(),
+                    m.anri.know(m.race1stage).non(),
+                    m.anri.hear(m.some()),
+                    m.anri.meet(m.yabu),
                     ),
                 ("ep2", self.ep2,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
+                    m.anri.deal("受付を済ませる").must(),
+                    m.anri.do(m.race1, "参加"),
+                    m.anri.go(m.race1front),
+                    m.anri.deal(m.yabu, "助ける").ps(),
                     ),
                 ("ep3", self.ep3,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
+                    m.anri.know(m.race1, "心得").want(),
+                    m.anri.be(m.race1, "初レース"),
+                    m.anri.hear(m.yabu, "心得"),
+                    m.anri.know(m.f_important_race),
                     ),
                 ("ep4", self.ep4,
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
-                    m.anri.be(),
+                    m.anri.do("スタート", "成功").must(),
+                    m.anri.hear(m.f_important_race, m.yabu),
+                    m.anri.be(m.yabu, "近くでスタート"),
+                    m.anri.do(m.yabu, "裏切り").ps(),
                     ),
                 ]
 
-        for title, story, what, why, how, result in data[0:1]:
+        for title, story, what, why, how, result in data:
             with self.subTest(title=title, story=story, what=what, why=why, how=how, result=result):
                 self.assertTrue(testtools.has_outline_infos(self, story, what, why, how, result, True))
 
