@@ -82,7 +82,7 @@ def story03(m: Master):
             ep_lostwin(m),
             )
 
-def main(): # pragm. no cover
+def main(): # pragma: no cover
     from main import master
     return build_to_story(story03(master()))
 
