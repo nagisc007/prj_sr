@@ -66,7 +66,7 @@ class StoryTest(unittest.TestCase):
                     ),
                 ("ep3", self.ep3,
                     m.anri.go(m.race1, "ゴール"),
-                    m.anri.have(m.race1, "優勝"),
+                    m.anri.have(m.race1, "優勝").want(),
                     m.anri.go("先に進む"),
                     m.anri.be(m.taiga, "立ち塞がる"),
                     ),

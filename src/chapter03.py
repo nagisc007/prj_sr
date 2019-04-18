@@ -28,13 +28,18 @@ def ep_dashdash(m: Master):
 
 def ep_recoop(m: Master):
     racetime = m.race1day.elapsed_day(hour=11, min=30)
+    course = m.race1stage.insided("ビルの谷間")
     lastzone = m.race1stage.insided("ゴール前")
     return m.story("ゴール直前の壁",
+            m.anri.go(m.race1, "ゴール"),
+            m.anri.have(m.race1, "優勝").want(),
+            m.anri.be(racetime, course),
             m.anri.ask(m.yabu, m.yabu_reason),
             m.yabu.reply(m.anri, m.yabu_reason),
             m.yabu.talk(m.anri, "どんな手を使っても勝つ", "これがSR"),
             m.anri.ask(m.yabu, "それでもずっと勝ててない"),
             m.yabu.talk(m.anri, m.taiga, "あいつがいる"),
+            m.anri.go("先に進む"),
             m.anri.go(lastzone),
             m.taiga.do("皆殺し"),
             m.anri.be(m.taiga, "立ち塞がる"),
