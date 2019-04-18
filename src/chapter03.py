@@ -13,16 +13,26 @@ from storybuilder.builder.tools import build_to_story
 def ep_intro(m: Master):
     racetime = m.race1day.elapsed_day(hour=11, min=10)
     return m.story("冒頭",
+            m.comment("レース開始の振り返りと簡単な説明"),
             m.anri.be("出遅れた", m.race1stage, racetime),
             m.anri.be("スタートできていない"),
             m.anri.know("何が起きたか").must(),
-            m.anri.have(m.race1, "優勝").want(),
-            m.anri.have(m.grandticket).can(),
+            m.anri.remember("スタート"),
+            m.anri.think(m.yabu, "嵌められた"),
+            m.anri.go("急ぐ"),
+            m.anri.look("自分は最後尾"),
             )
 
 def ep_dashdash(m: Master):
     racetime = m.race1day.elapsed_day(hour=11, min=15)
+    course = m.race1stage.insided("市街地コース")
     return m.story("追いつけ！",
+            m.anri.go(course, racetime),
+            course.explain("壊れたビルの残骸"),
+            m.anri.deal("遅れを取り戻す").must(),
+            m.anri.be("出遅れた"),
+            m.anri.do(m.angelwing, "使う"),
+            m.angelwing.explain("母の遺品", "全身が壊れそうなほどの速度"),
             m.anri.go(m.yabu, "追いつく"),
             )
 
@@ -52,7 +62,7 @@ def ep_lostwin(m: Master):
             m.anri.be(lastzone, racetime),
             m.anri.go("ゴール", m.taiga).non(),
             m.anri.have(m.race1, "優勝").want(),
-            m.anri.have(m.grandticket),
+            m.anri.have(m.grandticket).must(),
             m.anri.have(m.yabu, "協力"),
             m.anri.do(m.taiga, "倒す", m.yabu, "協力"),
             m.anri.be("壊れる"),

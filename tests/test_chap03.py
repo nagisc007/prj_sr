@@ -48,7 +48,7 @@ class StoryTest(unittest.TestCase):
         data = [
                 ("chapter03", self.story,
                     m.anri.have(m.race1, "優勝").want(),
-                    m.anri.have(m.grandticket).can(),
+                    m.anri.have(m.grandticket).must(),
                     m.anri.have(m.yabu, "協力"),
                     m.anri.have(m.race1, "優勝").non(),
                     ),
@@ -72,7 +72,7 @@ class StoryTest(unittest.TestCase):
                     ),
                 ("ep4", self.ep4,
                     m.anri.have(m.race1, "優勝").want(),
-                    m.anri.have(m.grandticket),
+                    m.anri.have(m.grandticket).must(),
                     m.anri.do(m.yabu, "協力", m.taiga, "倒す"),
                     m.anri.have(m.race1, "優勝").non(),
                     ),
