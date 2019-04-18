@@ -10,20 +10,40 @@ from storybuilder.builder.tools import build_to_story
 
 
 # episodes
+def ep_intro(m: Master):
+    return m.story("冒頭",
+            m.anri.be(m.race1, "参加", m.race1day, m.race1stage),
+            m.anri.have(m.race1, "優勝").want(),
+            m.anri.have(m.grandticket, "優勝できれば").can(),
+            m.anri.be("出遅れた"),
+            m.anri.talk(m.yabu).ps(),
+            )
+
+def ep_racers(m: Master):
+    return m.story("レーサーたち",
+            )
+
+def ep_justbefore(m: Master):
+    return m.story("レース直前",
+            )
+
+def ep_startcrash(m: Master):
+    return m.story("開始直後の洗礼",
+            m.yabu.talk("奪うだけがレースじゃない"),
+            m.yabu.talk(m.anri, "協力しないか"),
+            m.anri.reply(m.yabu, "協力する"),
+            m.anri.have(m.yabu, "協力"),
+            m.anri.do(m.yabu, "裏切り").ps(),
+            )
+
 
 # main
 def story02(ma: Master):
     return ma.story("Race 2",
-            ma.anri.be(ma.race1, "参加", ma.race1day, ma.race1stage),
-            ma.anri.have(ma.race1, "優勝").want(),
-            ma.anri.have(ma.grandticket, "優勝できれば").can(),
-            ma.anri.be("出遅れた"),
-            ma.anri.talk(ma.yabu).ps(),
-            ma.yabu.talk("奪うだけがレースじゃない"),
-            ma.yabu.talk(ma.anri, "協力しないか"),
-            ma.anri.reply(ma.yabu, "協力する"),
-            ma.anri.have(ma.yabu, "協力"),
-            ma.anri.do(ma.yabu, "裏切り").ps(),
+            ep_intro(ma),
+            ep_racers(ma),
+            ep_justbefore(ma),
+            ep_startcrash(ma),
             )
 
 def main(): # pragma: no cover

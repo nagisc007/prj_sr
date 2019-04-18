@@ -6,7 +6,7 @@ import storybuilder.builder.testtools as testtools
 from storybuilder.builder.sbutils import print_test_title
 from src.main import master, story
 from src.main import CHARAS, STAGES
-from src.chapter02 import story02
+from src.chapter02 import story02, ep_intro, ep_racers, ep_justbefore, ep_startcrash
 
 
 _FILENAME = 'chapter02.py'
@@ -21,6 +21,10 @@ class StoryTest(unittest.TestCase):
     def setUp(self):
         self.ma = master()
         self.story = story02(self.ma)
+        self.ep1 = ep_intro(self.ma)
+        self.ep2 = ep_racers(self.ma)
+        self.ep3 = ep_justbefore(self.ma)
+        self.ep4 = ep_startcrash(self.ma)
 
     def test_exists_looking(self):
         pass
@@ -29,6 +33,10 @@ class StoryTest(unittest.TestCase):
         m = self.ma
         data = [
                 ("chapter02", self.story, m.anri, m.yabu),
+                ("ep1", self.ep1, m.anri, m.yabu),
+                ("ep2", self.ep2, m.anri, m.yabu),
+                ("ep3", self.ep3, m.anri, m.yabu),
+                ("ep4", self.ep4, m.anri, m.yabu),
                 ]
 
         for title, story, hero, rival in data[0:1]:
@@ -43,6 +51,30 @@ class StoryTest(unittest.TestCase):
                     m.anri.have(m.grandticket).can(),
                     m.anri.have(m.yabu, "協力"),
                     m.anri.do(m.yabu, "裏切り").ps()),
+                ("ep1", self.ep1,
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    ),
+                ("ep2", self.ep2,
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    ),
+                ("ep3", self.ep3,
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    ),
+                ("ep4", self.ep4,
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    m.anri.be(),
+                    ),
                 ]
 
         for title, story, what, why, how, result in data[0:1]:
