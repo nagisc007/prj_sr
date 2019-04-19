@@ -54,9 +54,9 @@ class StoryTest(unittest.TestCase):
                     ),
                 ("ep1", self.ep1,
                     m.anri.look(m.race2, "参加方法").must(),
-                    m.anri.be("負けた", m.race1),
+                    m.anri.be("敗れる", m.race1),
                     m.anri.have(m.dealer, m.race_ticket),
-                    m.anri.talk(m.chief, "諦めろ", m.race2),
+                    m.chief.talk(m.anri, "諦めろ", m.race2),
                     ),
                 ("ep2", self.ep2,
                     m.anri.have(m.ticket2).must(),
@@ -78,7 +78,7 @@ class StoryTest(unittest.TestCase):
                     ),
                 ]
 
-        for title, story, what, why, how, result in data[0:1]:
+        for title, story, what, why, how, result in data:
             with self.subTest(title=title, story=story, what=what, why=why, how=how, result=result):
                 self.assertTrue(testtools.has_outline_infos(self, story, what, why, how, result, True))
 
