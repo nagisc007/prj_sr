@@ -61,12 +61,15 @@ STAGES = (
 DAYS = (
         ("day1", "一日目"),
         ("race1day", "最初のレース日"),
+        ("race1afterday", "最初のレース後日"),
         ("race2day", "二番目のレース日"),
+        ("race2afterday", "二番目のレース後日"),
         ("race_consday", "敗者復活レースの日"),
         ("grandprixday", "グランプリレースの日"),
         ("afterday", "グランプリ後日"),
         )
 ITEMS = (
+        ("race_ticket", "レース参加権"),
         ("ticket1", "最初のレース参加権", "レースに参加する権利。これがないと参加不可能"),
         ("ticket1notice", "レース権当選通知"),
         ("ticket2", "二番目のレース参加権"),
@@ -97,6 +100,8 @@ WORDS = (
         ("robhunter", "盗掘狩り", "盗掘屋を通報、逮捕する者"),
         # chapter2
         ("yabu_reason", "野武の事情"),
+        # chapter4
+        ("dealer", "売人"),
         )
 FLAGS = (
         # chapter2

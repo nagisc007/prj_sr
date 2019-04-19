@@ -10,20 +10,40 @@ from storybuilder.builder.tools import build_to_story
 
 
 # episodes
+def ep_intro(m: Master):
+    return m.story("敗れ去って",
+            m.anri.feel("失望", m.race1, "敗戦"),
+            m.anri.be(m.factory, m.race1day.elapsed_day(mon=1)),
+            m.anri.have(m.ticket2).want(),
+            m.anri.have(m.grandticket).can(),
+            )
+
+def ep_boringday(m: Master):
+    return m.story("怠惰な日々",
+            )
+
+def ep_stranger(m: Master):
+    return m.story("奇妙な男",
+            )
+
+def ep_retry(m: Master):
+    return m.story("もう一度のチャンス",
+            m.sagisawa.come(m.factory),
+            m.anri.hear(m.sagisawa, m.race2, m.sagi_proposal),
+            m.anri.reply(m.sagisawa, m.sagi_proposal),
+            m.anri.go(m.race2stage),
+            m.anri.look(m.rondo),
+            m.anri.go(m.rondo, m.race2, "ペアで"),
+            )
+
 
 # main
-def story04(ma: Master):
-    return ma.story("Race 4",
-            ma.anri.feel("失望", ma.race1, "敗戦"),
-            ma.anri.be(ma.factory, ma.race1day.elapsed_day(mon=1)),
-            ma.anri.have(ma.ticket2).want(),
-            ma.anri.have(ma.grandticket).can(),
-            ma.sagisawa.come(ma.factory),
-            ma.anri.hear(ma.sagisawa, ma.race2, ma.sagi_proposal),
-            ma.anri.reply(ma.sagisawa, ma.sagi_proposal),
-            ma.anri.go(ma.race2stage),
-            ma.anri.look(ma.rondo),
-            ma.anri.go(ma.rondo, ma.race2, "ペアで"),
+def story04(m: Master):
+    return m.story("Race 4",
+            ep_intro(m),
+            ep_boringday(m),
+            ep_stranger(m),
+            ep_retry(m),
             )
 
 def main(): # pragma: no cover
