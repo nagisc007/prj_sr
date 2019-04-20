@@ -10,31 +10,55 @@ from storybuilder.builder.tools import build_to_story
 
 
 # episodes
+def ep_intro(m: Master):
+    return m.story("冒頭",
+            m.anri.be(m.race2, m.race2day, m.race2stage),
+            m.anri.talk(m.rondo, "口論"),
+            m.anri.have(m.sagi_proposal),
+            m.rondo.talk(m.anri, "あなたの事情は知らない", "自分は優勝したいだけ"),
+            m.rondo.talk(m.anri, "優勝が使命"),
+            )
+
+
+def ep_racer(m: Master):
+    return m.story("レーサーとは",
+            m.rondo.ask(m.anri, "優勝したくないの？"),
+            m.anri.have(m.race2, "優勝").want(),
+            m.anri.think(m.race2, "勝利する").want(),
+            m.anri.reply(m.rondo, "優勝したい"),
+            m.rondo.talk(m.anri, "協力"),
+            )
+
+
+def ep_goalline(m: Master):
+    return m.story("ゴールライン",
+            m.anri.ask(m.rondo, "自分を信じてくれるのか？"),
+            m.rondo.reply(m.anri, "あなたの優勝したい気持ちを信じる"),
+            m.anri.have(m.rondo, "協力"),
+            m.angelwing.be("破損"),
+            m.anri.go("失速"),
+            )
+
+
+def ep_retire(m: Master):
+    return m.story("リタイアの選択",
+            m.rondo.talk(m.anri, "助ける"),
+            m.anri.reply(m.rondo, "優勝したいなら助けるな"),
+            m.rondo.think("混乱"),
+            m.rondo.go("一人で行く"),
+            m.anri.go(m.race2, m.retire),
+            )
+
 
 # main
-def story06(ma: Master):
-    return ma.story("Race 6",
-            ma.anri.be(ma.race2, ma.race2day, ma.race2stage),
-            ma.anri.talk(ma.rondo, "口論"),
-            ma.anri.have(ma.sagi_proposal),
-            ma.rondo.talk(ma.anri, "あなたの事情は知らない", "自分は優勝したいだけ"),
-            ma.rondo.talk(ma.anri, "優勝が使命"),
-            ma.rondo.ask(ma.anri, "優勝したくないの？"),
-            ma.anri.have(ma.race2, "優勝").want(),
-            ma.anri.think(ma.race2, "勝利する").want(),
-            ma.anri.reply(ma.rondo, "優勝したい"),
-            ma.rondo.talk(ma.anri, "協力"),
-            ma.anri.ask(ma.rondo, "自分を信じてくれるのか？"),
-            ma.rondo.reply(ma.anri, "あなたの優勝したい気持ちを信じる"),
-            ma.anri.have(ma.rondo, "協力"),
-            ma.angelwing.be("破損"),
-            ma.anri.go("失速"),
-            ma.rondo.talk(ma.anri, "助ける"),
-            ma.anri.reply(ma.rondo, "優勝したいなら助けるな"),
-            ma.rondo.think("混乱"),
-            ma.rondo.go("一人で行く"),
-            ma.anri.go(ma.race2, ma.retire),
+def story06(m: Master):
+    return m.story("Race 6",
+            ep_intro(m),
+            ep_racer(m),
+            ep_goalline(m),
+            ep_retire(m),
             )
+
 
 def main(): # pragma: no cover
     from main import master
