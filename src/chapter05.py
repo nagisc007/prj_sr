@@ -10,20 +10,43 @@ from storybuilder.builder.tools import build_to_story
 
 
 # episodes
+def ep_intro(m: Master):
+    return m.story("ペアレース",
+            m.anri.go(m.rondo, m.race2),
+            m.anri.have(m.grandticket).want(),
+            m.anri.do(m.sagi_proposal, "約束を守る", m.grandticket).can(),
+            m.anri.go(m.race2stage, m.race2day),
+            )
+
+
+def ep_promise(m: Master):
+    return m.story("暗黒の約束",
+            m.rondo.talk(m.anri, "あなたのことは聞いている"),
+            m.rondo.know(m.anri, m.dad),
+            m.rondo.talk(m.anri, m.rondo_promise),
+            m.anri.think("迷う", m.rondo_promise, m.sagi_proposal),
+            )
+
+
+def ep_rondo(m: Master):
+    return m.story("レースの申し子ロンド",
+            )
+
+
+def ep_obstacle(m: Master):
+    return m.story("邪魔者",
+            m.anri.do(m.rondo, "優勝を邪魔する"),
+            m.anri.talk(m.rondo, "失望").ps(),
+            )
+
 
 # main
-def story05(ma: Master):
-    return ma.story("Race 5",
-            ma.anri.go(ma.rondo, ma.race2),
-            ma.anri.have(ma.grandticket).want(),
-            ma.anri.do(ma.sagi_proposal, "約束を守る", ma.grandticket).can(),
-            ma.anri.go(ma.race2stage, ma.race2day),
-            ma.rondo.talk(ma.anri, "あなたのことは聞いている"),
-            ma.rondo.know(ma.anri, ma.dad),
-            ma.rondo.talk(ma.anri, ma.rondo_promise),
-            ma.anri.think("迷う", ma.rondo_promise, ma.sagi_proposal),
-            ma.anri.do(ma.rondo, "優勝を邪魔する"),
-            ma.anri.talk(ma.rondo, "失望").ps(),
+def story05(m: Master):
+    return m.story("Race 5",
+            ep_intro(m),
+            ep_promise(m),
+            ep_rondo(m),
+            ep_obstacle(m),
             )
 
 def main(): # pragma: no cover
