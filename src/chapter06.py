@@ -15,18 +15,27 @@ def ep_intro(m: Master):
             m.anri.be(m.race2, m.race2day, m.race2stage),
             m.anri.talk(m.rondo, "口論"),
             m.anri.have(m.sagi_proposal),
+            m.anri.do(m.rondo, "邪魔").must(),
+            m.anri.have(m.grandticket, m.sagi_proposal).can(),
             m.rondo.talk(m.anri, "あなたの事情は知らない", "自分は優勝したいだけ"),
             m.rondo.talk(m.anri, "優勝が使命"),
+            m.anri.do(m.rondo, "戦う"),
+            m.anri.talk(m.rondo, "告白", m.sagi_proposal),
             )
 
 
 def ep_racer(m: Master):
     return m.story("レーサーとは",
+            m.anri.be(m.race2stage, m.race2day, m.rondo),
             m.rondo.ask(m.anri, "優勝したくないの？"),
+            m.anri.have(m.grandticket).must(),
+            m.anri.have(m.anri_reason),
             m.anri.have(m.race2, "優勝").want(),
             m.anri.think(m.race2, "勝利する").want(),
             m.anri.reply(m.rondo, "優勝したい"),
-            m.rondo.talk(m.anri, "協力"),
+            m.anri.talk(m.rondo, "話し合う"),
+            m.rondo.ask(m.anri, "協力"),
+            m.anri.reply(m.rondo, "協力"),
             )
 
 
