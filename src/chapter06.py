@@ -31,9 +31,20 @@ def ep_racer(m: Master):
 
 
 def ep_goalline(m: Master):
+    racetime = m.race2day.elapsed_day(hour=16, min=30)
     return m.story("ゴールライン",
+            m.anri.go(m.race2stage, racetime),
+            m.rondo.be(m.anri, "待っていた"),
             m.anri.ask(m.rondo, "自分を信じてくれるのか？"),
             m.rondo.reply(m.anri, "あなたの優勝したい気持ちを信じる"),
+            m.anri.go(m.rondo, m.race2, "ペアでゴール").must(),
+            m.race2.be("ルール"),
+            m.rondo.ask(m.anri, "そんな体で大丈夫か？"),
+            m.anri.reply(m.rondo, "お前のペアを信じろ"),
+            m.rondo.go("先に行く"),
+            m.anri.deal(m.angelwing),
+            m.anri.go(m.rondo, "二人でゴールラインを超える"),
+            m.race2.do("本当のゴールが出現"),
             m.angelwing.be("破損"),
             m.anri.go("失速"),
             m.anri.know(m.race2, "本当のゴールは個人戦"),
