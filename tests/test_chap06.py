@@ -49,7 +49,7 @@ class StoryTest(unittest.TestCase):
                 ("chapter06", self.story,
                     m.anri.have(m.race2, "優勝").want(),
                     m.anri.think(m.race2, "勝利する").want(),
-                    m.anri.have(m.rondo, "協力"),
+                    m.anri.deal(m.rondo, "協力"),
                     m.anri.go(m.race2, m.retire),
                     ),
                 ("ep1", self.ep1,

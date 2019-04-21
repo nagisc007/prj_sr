@@ -34,19 +34,24 @@ def ep_goalline(m: Master):
     return m.story("ゴールライン",
             m.anri.ask(m.rondo, "自分を信じてくれるのか？"),
             m.rondo.reply(m.anri, "あなたの優勝したい気持ちを信じる"),
-            m.anri.have(m.rondo, "協力"),
             m.angelwing.be("破損"),
             m.anri.go("失速"),
+            m.anri.know(m.race2, "本当のゴールは個人戦"),
             )
 
 
 def ep_retire(m: Master):
+    racetime = m.race2day.elapsed_day(hour=17)
     return m.story("リタイアの選択",
-            m.rondo.talk(m.anri, "助ける"),
-            m.anri.reply(m.rondo, "優勝したいなら助けるな"),
-            m.rondo.think("混乱"),
-            m.rondo.go("一人で行く"),
+            m.anri.go(m.race2stage, racetime, "ゴールに向かう"),
+            m.rondo.ask(m.anri, m.angelwing),
+            m.anri.go(m.rondo, "ゴール", "一緒に").must(),
+            m.race2.be("レース条件"),
+            m.anri.think(m.rondo, m.sagi_proposal, "自分の気持"),
+            m.anri.talk(m.rondo, "一人でいけ"),
+            m.anri.deal(m.rondo, "協力"),
             m.anri.go(m.race2, m.retire),
+            m.anri.have(m.race2, "優勝").non(),
             )
 
 
