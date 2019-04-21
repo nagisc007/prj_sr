@@ -10,25 +10,48 @@ from storybuilder.builder.tools import build_to_story
 
 
 # episodes
+def ep_intro(m: Master):
+    return m.story("冒頭",
+            m.anri.go(m.wreckfactory, m.race2day.elapsed_day(day=10)),
+            m.anri.think(m.dad_reason).want(),
+            m.anri.have(m.grandticket).want(),
+            )
+
+
+def ep_grandprix(m: Master):
+    return m.story("遠いグランプリ",
+            )
+
+
+def ep_re_sagisawa(m: Master):
+    return m.story("再びの鷺沢",
+            m.sagisawa.talk(m.anri),
+            m.sagisawa.ask(m.anri, m.sagi_proposal2),
+            m.anri.reply(m.sagisawa, "断る"),
+            m.sagisawa.talk(m.anri, "受ければ助かる", "欲しいものも手に入る"),
+            m.anri.think(m.sagi_proposal2),
+            m.anri.reply(m.sagisawa, "受ける"),
+            m.anri.have(m.sagisawa, m.sagi_proposal2),
+            )
+
+
+def ep_consolation(m: Master):
+    return m.story("敗者復活戦",
+            m.anri.have(m.ticket_cons),
+            m.anri.go(m.factory, m.race2day.elapsed_day(day=12)),
+            m.anri.talk(m.chief, m.race_cons),
+            m.anri.go(m.race_cons, "参加"),
+            m.anri.go(m.race_consstage, m.race_consday),
+            )
+
 
 # main
-def story07(ma: Master):
-    return ma.story("Race 7",
-            ma.anri.go(ma.wreckfactory, ma.race2day.elapsed_day(day=10)),
-            ma.anri.think(ma.dad_reason).want(),
-            ma.anri.have(ma.grandticket).want(),
-            ma.sagisawa.talk(ma.anri),
-            ma.sagisawa.ask(ma.anri, ma.sagi_proposal2),
-            ma.anri.reply(ma.sagisawa, "断る"),
-            ma.sagisawa.talk(ma.anri, "受ければ助かる", "欲しいものも手に入る"),
-            ma.anri.think(ma.sagi_proposal2),
-            ma.anri.reply(ma.sagisawa, "受ける"),
-            ma.anri.have(ma.sagisawa, ma.sagi_proposal2),
-            ma.anri.have(ma.ticket_cons),
-            ma.anri.go(ma.factory, ma.race2day.elapsed_day(day=12)),
-            ma.anri.talk(ma.chief, ma.race_cons),
-            ma.anri.go(ma.race_cons, "参加"),
-            ma.anri.go(ma.race_consstage, ma.race_consday),
+def story07(m: Master):
+    return m.story("Race 7",
+            ep_intro(m),
+            ep_grandprix(m),
+            ep_re_sagisawa(m),
+            ep_consolation(m),
             )
 
 def main(): # pragma: no cover
